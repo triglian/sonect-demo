@@ -40,12 +40,12 @@ function validateSearchQuery(query) {
 async function searchShop(query) {
   const { longitude, latitude, radius, sortBy } = query;
 
-  const filters = {
+  const sortFilters = {
     distance: { distance: 1 },
     withdrawal_limit: { withdrawalLimit: -1 }
   };
 
-  const filter = filters[sortBy] || filters.distance;
+  const sortFilter = sortFilters[sortBy] || sortFilters.distance;
 
   const results = await Shop.aggregate([
     {
@@ -59,7 +59,7 @@ async function searchShop(query) {
         maxDistance: radius
       }
     },
-    { $sort: filter }
+    { $sort: sortFilter }
   ]);
 
   const filteredResults = _.map(

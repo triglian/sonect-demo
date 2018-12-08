@@ -1,7 +1,7 @@
 const express = require('express')
+const Boom = require('boom');
 const db = require('./db');
 const apiRouter = require('./routes/api/shops');
-const Boom = require('boom');
 require('./model/Shop');
 
 const port = 3000;
@@ -15,18 +15,17 @@ async function init(){
     app.use('/api/shops', apiRouter);
 
     // 404 handler
-    app.use((req, res, next) => {
+    app.use((req, res) => {
       const err = Boom.notFound('Not found');
       return res.json(err.output);
     });
-
 
     // default error handler
     app.use((err, req, res, next) => {
       if(err.isBoom){
         return res.json(err.output);
       }
-      return next(err)
+      return next(err);
     });
 
     app.listen(port, () => console.log(`API server listening on port ${port}!`))
