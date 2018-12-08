@@ -1,0 +1,18 @@
+{
+  "extends": ["airbnb/base", "prettier"],
+  "env": {
+    "node": true,
+    "browser": true,
+    "mocha": true
+  },
+  "plugins": [
+    "mocha"
+  ],
+  "rules": {
+    "prefer-arrow-callback": 0,
+    "mocha/prefer-arrow-callback": 2
+  },
+  "parserOptions": {
+    "ecmaVersion": 8
+  }
+}
