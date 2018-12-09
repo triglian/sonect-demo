@@ -41,6 +41,8 @@ $ npm run start-dev
 
 ## Tests
 
+__Important__: Make sure the database is seeded before running the tests.
+
 ```sh
 $ npm test
 ```
