@@ -183,9 +183,8 @@ describe('/api/shops/search', function describeShop() {
         .expect('Content-Type', /json/, 'it should respond with json')
         .expect(200)
         .end(function responseFn(err, res) {
-          const isSorted = _.every(res.body, (value, index, array) => {
-            return index === 0 || array[index - 1].distance <= value.distance;
-          });
+          const isSorted = _.every(res.body, (value, index, array) => 
+             index === 0 || array[index - 1].distance <= value.distance);
 
           isSorted.should.equal(true);
           done(err);
@@ -204,9 +203,12 @@ describe('/api/shops/search', function describeShop() {
         .expect('Content-Type', /json/, 'it should respond with json')
         .expect(200)
         .end(function responseFn(err, res) {
-          const isSorted = _.every(res.body, (value, index, array) => {
-            return index === 0 || array[index - 1].withdrawalLimit >= value.withdrawalLimit;
-          });
+          const isSorted = _.every(
+            res.body,
+            (value, index, array) =>
+              index === 0 ||
+              array[index - 1].withdrawalLimit >= value.withdrawalLimit
+          );
 
           isSorted.should.equal(true);
           done(err);

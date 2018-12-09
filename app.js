@@ -1,4 +1,4 @@
-const express = require('express')
+const express = require('express');
 const Boom = require('boom');
 
 const apiRouter = require('./routes/api/shops');
@@ -6,7 +6,7 @@ require('./model/Shop');
 
 const app = express();
 
-app.get('/', (req,res) => res.json({message: 'API server is running'}))
+app.get('/', (req, res) => res.json({ message: 'API server is running' }));
 app.use('/api/shops', apiRouter);
 
 // 404 handler
@@ -18,7 +18,7 @@ app.use((req, res) => {
 
 // default error handler
 app.use((err, req, res, next) => {
-  if(err.isBoom){
+  if (err.isBoom) {
     res.status(err.output.statusCode);
     return res.json(err.output);
   }

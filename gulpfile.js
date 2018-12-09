@@ -1,7 +1,7 @@
-const {spawn} = require('child_process');
+const { spawn } = require('child_process');
 
-function start () {
-  spawn('./bin/www',[], { stdio: 'inherit' })
+function start() {
+  spawn('./bin/www', [], { stdio: 'inherit' });
 }
 
 exports.start = start;

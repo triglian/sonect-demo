@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const {Schema} = mongoose;
+const { Schema } = mongoose;
 
 const locationSchema = new Schema({
   type: {
@@ -16,12 +16,12 @@ const locationSchema = new Schema({
   }
 });
 
-const shopSchema = new Schema({ 
+const shopSchema = new Schema({
   name: { type: String, required: true },
   address: { type: String, required: true },
   city: { type: String, required: true },
   po: { type: String, required: true },
-  location: {type: locationSchema, required: true },
+  location: { type: locationSchema, required: true },
   withdrawalLimit: { type: Number, required: true }
 });
 

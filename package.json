@@ -17,7 +17,7 @@
     "seed": "node seed.js",
     "start": "./bin/www",
     "start-dev": "nodemon ./bin/www",
-    "test": "mocha test",
+    "test": "mocha --exit",
     "lint": "eslint *.js"
   },
   "browserslist": [
