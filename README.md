@@ -4,12 +4,12 @@ The database contains a list of Postomats around Zurich. We use [GeoJSON](https:
 
 ## API
 
-Once you start the server, to get a list of shops pass the `longitude`, `latitude`, `radius` (in meters) as query parameters in a `GET` to `api/shops/search`. You can also sort results using the `sortBy` query parameter with values of `'distance'` or `'withdrawal_limit'`. The default is to sort by distance:
+Once you start the server, to get a list of shops pass the `longitude`, `latitude`, `radius` (in meters) as query parameters in a `GET` to `api/shops/search`. You can also sort results using the `sortBy` query parameter with values of `'distance'` or `'withdrawalLimit'`. The default is to sort by distance:
 
 Example:
 
 ```sh
-$ curl http://localhost:3000/api/shops/search?longitude=8.5391557&latitude=47.3733028&radius=4000&sortBy=withdrawal_limit
+$ curl http://localhost:3000/api/shops/search?longitude=8.5391557&latitude=47.3733028&radius=4000&sortBy=withdrawalLimit
 ```
 
 ## Install dependencies

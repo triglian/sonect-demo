@@ -10,12 +10,13 @@
     "lodash": "^4.17.11",
     "mocha": "^5.2.0",
     "mongoose": "^5.3.15",
+    "should": "^13.2.3",
     "supertest": "^3.3.0"
   },
   "scripts": {
     "seed": "node seed.js",
-    "start": "node server.js",
-    "start-dev": "nodemon server.js",
+    "start": "./bin/www",
+    "start-dev": "nodemon ./bin/www",
     "test": "mocha test",
     "lint": "eslint *.js"
   },

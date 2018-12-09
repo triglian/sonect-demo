@@ -11,7 +11,7 @@ const errors = require('../../errors');
  * @param {number} query.longitude - The longitude coord for which to search for shops.
  * @param {number} query.latitude - The latitude coord for which to search for shops.
  * @param {number} query.radius - The radius in meters from the coords within for which to search for shops.
- * @param {string} [query.sortBy=distance] - Whether to sort by distance to reach the shop or maximum withdrawal limit. Accepted values: 'distance', 'withdrawal_limit'
+ * @param {string} [query.sortBy=distance] - Whether to sort by distance to reach the shop or maximum withdrawal limit. Accepted values: 'distance', 'withdrawalLimit'
  */
 function validateSearchQuery(query) {
   let { longitude, latitude, radius, sortBy } = query;
@@ -30,7 +30,7 @@ function validateSearchQuery(query) {
 
   if (_.isNil(sortBy)) sortBy = 'distance';
 
-  if (sortBy !== 'distance' && sortBy !== 'withdrawal_limit') {
+  if (sortBy !== 'distance' && sortBy !== 'withdrawalLimit') {
     throw Boom.badRequest(errors.ERR_SORT_BY);
   }
 
@@ -42,7 +42,7 @@ async function searchShop(query) {
 
   const sortFilters = {
     distance: { distance: 1 },
-    withdrawal_limit: { withdrawalLimit: -1 }
+    withdrawalLimit: { withdrawalLimit: -1 }
   };
 
   const sortFilter = sortFilters[sortBy] || sortFilters.distance;
@@ -65,9 +65,10 @@ async function searchShop(query) {
   const filteredResults = _.map(
     results,
     _.partialRight(_.pick, [
+      'name',
       'address',
       'city',
-      'PO',
+      'po',
       'location.coordinates',
       'withdrawalLimit',
       'distance'

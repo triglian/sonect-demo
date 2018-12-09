@@ -1,0 +1,20 @@
+#!/usr/bin/env node
+const db = require('../db');
+const app = require('../app');
+
+app.set('port', process.env.PORT || 3000);
+
+async function init() {
+  try {
+    await db.connect();
+
+    const server = app.listen(app.get('port'), () =>
+      console.log(`API server listening on port ${server.address().port}!`)
+    );
+  } catch (err) {
+    console.error('Unhandled error occured:');
+    console.error(err);
+  }
+}
+
+init();

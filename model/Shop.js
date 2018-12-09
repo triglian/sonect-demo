@@ -17,9 +17,10 @@ const locationSchema = new Schema({
 });
 
 const shopSchema = new Schema({ 
+  name: { type: String, required: true },
   address: { type: String, required: true },
   city: { type: String, required: true },
-  PO: { type: String, required: true },
+  po: { type: String, required: true },
   location: {type: locationSchema, required: true },
   withdrawalLimit: { type: Number, required: true }
 });
