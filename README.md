@@ -46,3 +46,17 @@ __Important__: Make sure the database is seeded before running the tests.
 ```sh
 $ npm test
 ```
+
+## Gulp task
+
+I created a gulp task to start the server. You need to have the gulp-cli installed:
+
+```sh
+$ npm install gulp-cli -g
+```
+
+Then, to run the task:
+
+```sh
+$ gulp
+```
