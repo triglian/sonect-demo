@@ -2,6 +2,8 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
+// use GeoJSON compatible schema so that we can do
+// distance calculation using the built-in mongo capabilities
 const locationSchema = new Schema({
   type: {
     type: String,
@@ -11,7 +13,7 @@ const locationSchema = new Schema({
   },
   coordinates: {
     type: [Number],
-    index: '2dsphere', //index on coords for faster searches
+    index: '2dsphere', //index on coords for faster lookups
     required: true
   }
 });
